@@ -36,7 +36,14 @@ module regm(
 
 	reg [31:0] _data1, _data2;
 
+	integer i, j;
 	initial begin
+		for (i = 0; i < 32; i = i + 1) begin
+			for (j = 0; j < 32; j = j + 1) begin
+				mem[i][j] = 0;
+			end
+		end
+
 		if (`DEBUG_CPU_REG) begin
 			$display("     $v0,      $v1,      $t0,      $t1,      $t2,      $t3,      $t4,      $t5,      $t6,      $t7");
 			$monitor("%x, %x, %x, %x, %x, %x, %x, %x, %x, %x",

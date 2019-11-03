@@ -33,7 +33,7 @@ module im(
 	reg [31:0] mem [0:127];  // 32-bit memory with 128 entries
 
 	initial begin
-		$readmemh(IM_DATA, mem, 0, NMEM-1);
+		$readmemb(IM_DATA, mem);
 	end
 
 	assign data = mem[addr[8:2]][31:0];
